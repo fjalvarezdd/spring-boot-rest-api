@@ -2,6 +2,7 @@ package com.fjalvarez.review;
 
 import com.fjalvarez.core.BaseEntity;
 import com.fjalvarez.course.Course;
+import com.fjalvarez.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -13,6 +14,8 @@ public class Review extends BaseEntity{
     private String description;
     @ManyToOne
     private Course course;
+    @ManyToOne
+    private User reviewer;
 
     protected Review() {
         super();
@@ -46,5 +49,13 @@ public class Review extends BaseEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(User reviewer) {
+        this.reviewer = reviewer;
     }
 }
